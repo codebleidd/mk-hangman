@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import "app/styles/app";
+@font-face {
+  font-family: 'AllerDisplay';
+  src: url('assets/styles/fonts/AllerDisplay.eot'); /* IE9 Compat Modes */
+  src: url('assets/styles/fonts/AllerDisplay.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    //url('fonts/AllerDisplay.woff2') format('woff2'), /* Super Modern Browsers */
+  url('assets/styles/fonts/AllerDisplay.woff') format('woff'), /* Pretty Modern Browsers */
+  url('assets/styles/fonts/AllerDisplay.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('assets/styles/fonts/AllerDisplay.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+body {
+  font-family: 'AllerDisplay', 'PT Sans Narrow', sans-serif;
+  background-color: $background1;
+}
+
+* {
+  @include box-sizing;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

@@ -1,0 +1,64 @@
+@import './../../styles/app';
+$box-size-xs: 50px;
+$box-size-md: 100px;
+
+#guessed-letters{
+  margin-top: 20%;
+  @include flexbox();
+  @include flex-flow(row wrap);
+  justify-content: flex-end;
+  //align-content: flex-end;
+}
+.guessed-box{
+  @include border-radius(5px);
+  width: $box-size-xs;
+  height: $box-size-xs;
+  margin: 5px;
+  //float: left;
+
+  &-full{
+    @extend .guessed-box;
+    background-color: $bar-color;
+    color: $background3;
+    text-align: center;
+  }
+  &-empty{
+    @extend .guessed-box;
+    @include background-opacity($bar-color, 0.1)
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .guessed-box{
+    &-empty {
+      height: $box-size-md;
+      width: $box-size-md;
+    }
+    &-full {
+      height: $box-size-md;
+      width: $box-size-md;
+    }
+  }
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

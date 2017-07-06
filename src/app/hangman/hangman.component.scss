@@ -1,0 +1,130 @@
+@import "./../styles/app";
+
+@function rope-axis-func($val1, $val2) {
+  @return $val1 - ((100% - $val2) * $val1)/100%
+}
+
+$bar-width: 25%;
+$rope-position: 90%;
+$rope-center: 17.65%;
+
+$bar-width-xs: 50%;
+$rope-position-xs: 80%;
+$rope-center-xs: 35.2%;
+
+#hangman {
+  position: relative;
+  clear: both;
+}
+
+.hangman- {
+  &bar {
+    position: absolute;
+    background-color: $bar-color;
+    @include border-radius(7px);
+    left: -5%;
+    height:20px;
+    width: $bar-width-xs;
+
+    &::after {
+      position: relative;
+      display: block;
+      background-color: inherit;
+      @include border-radius(7px);
+      content: '';
+      top:13px;
+      left: $rope-position-xs;
+      height: 180%;
+      width: 5%;
+      margin-left: -3%;
+    }
+  }
+  &folk-{
+    &wrapper{
+      position: absolute;
+      display: block;
+      top: 18%;
+      left: $rope-center-xs;
+      height: 106px;
+      width: 96px;
+      margin-left: -50px;
+
+    }
+    &stage-{
+      &1 {
+        position: relative;
+        display: block;
+        background: url('./../styles/imgs/head.png') center;
+        background-size: 100%;
+        width:100%;
+        height: 100%;
+
+      }
+      &2{
+        @extend .hangman-folk-stage-1;
+        &::before {
+          position: absolute;
+          display: inline-block;
+          background-color: $body-color;
+          @include border-radius(5px);
+          content: '';
+          top: 90%;
+          left: 50%;
+          height: 30%;
+          width: 20%;
+          margin-left: -10%;
+          z-index: -1;
+        }
+      }
+      &3 {
+        @extend .hangman-folk-stage-2;
+        //background: url('./../styles/imgs/head.png') center;
+        &::after {
+          position: absolute;
+          display: inline-block;
+          background-color: $shirt2-color;
+          content: '';
+          top: 110%;
+          left: 25%;
+          width: 38px;
+          height: 75px;
+          margin-left: -19px;
+          border-bottom: solid #ffcd8a -75px;
+          border-right: solid $shirt1-color 38px;
+          //border-bottom-color: ;
+
+        }
+      }
+    }
+  }
+}
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .hangman- {
+    &bar{
+      width: $bar-width;
+      &:after{left: $rope-position;}
+    }
+    &folk-wrapper{left: $rope-center;}
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

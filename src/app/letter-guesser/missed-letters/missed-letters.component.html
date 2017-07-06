@@ -1,0 +1,8 @@
+<div id="missed-letters" >
+  You missed:
+  <div class="missed-letters-wrapper" *ngIf="missedLetters">
+    <div class="missed-letters-box" *ngFor="let letter of missedLetters">
+      <p>{{ letter }}</p>
+    </div>
+  </div>
+</div>

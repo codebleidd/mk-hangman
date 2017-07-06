@@ -1,0 +1,94 @@
+@import "styles/app";
+//$box-sizes: (width: 75%; height: 75%; top: 12.5%; left: 12.5%);
+
+.game-wrapper {
+  //background-color: #4a9d6a;
+  position: absolute;
+  @include flexbox();
+  @include flex-flow(row wrap);
+  justify-content: space-around;
+  width: 75%;
+  height: 75%;
+  top: 12.5%;
+  left: 12.5%;
+  padding: 20px;
+  overflow: auto;
+  z-index: $z-index-3;
+
+  &-background {
+    @extend .game-wrapper;
+    background-color: $background3;
+    @include border-radius(2px);
+    z-index: $z-index-1;
+  }
+}
+
+.kicked-box {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: $z-index-2;
+  background-color: $blue;
+  @include clip-path(polygon(100% 20%, 60% 85%, 67% 100%, 100% 100%));
+}
+
+.test-box{
+  height: 10vh;
+  width: 10vh;
+  position: relative;
+  //float: right;
+  top: 80%;
+  left:80%;
+  background-color: #4a9d6a;
+  z-index: $z-index-3;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  app-hangman, app-missed-letters, app-guessed-letters {
+    @include flex(1 100%);
+
+    //flex: 1 50%;
+    //@include flex(1 50%);
+    //margin: 10px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  app-hangman, app-missed-letters {
+    //flex: 1 50%;
+    @include flex(1);
+    margin: 10px;
+  }
+  app-guessed-letters {
+
+    @include flex(1 100%);
+    margin: 10px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  app-hangman {
+    @include flex(4);
+  }
+  app-missed-letters{
+    @include flex(6);
+  }
+  app-guessed-letters{}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
