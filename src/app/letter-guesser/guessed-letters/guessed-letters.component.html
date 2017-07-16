@@ -1,6 +1,6 @@
 <div id="guessed-letters">
-  <div class="guessed-box-empty">7</div>
+  <!--<div class="guessed-box-empty">7</div>-->
   <div class="" *ngFor="let letter of wordToGuess.split('')">
-    <div class="guessed-box-full"><div [style.visibility]="guessedLetters.indexOf(letter) < 0 ? 'hidden' : 'visible'">{{ letter }}</div></div>
+    <div class="guessed-box-full"><div class="guessed-box-full-content" [style.visibility]="guessedLetters.indexOf(letter) < 0 ? 'hidden' : 'visible'">{{ letter }}</div></div>
   </div>
 </div>

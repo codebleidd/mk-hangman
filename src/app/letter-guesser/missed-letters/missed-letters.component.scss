@@ -1,4 +1,7 @@
 @import './../../styles/app';
+$font-size-xs: 30px;
+$font-size-md: 45px;
+$font-size-lg: 60px;
 
 #missed-letters {
   text-transform: uppercase;
@@ -11,14 +14,55 @@
 
   &box {
     //float: left;
-    font-size: 60px;
+    //@include border-radius(5px);
+    font-size: $font-size-xs;
     color: $background2;
+    background-color: $background3;
+    text-align: center;
     letter-spacing: 15px;
-    height: 60px;
+    height: $font-size-xs;
   }
   &wrapper{
     @include flexbox();
     @include flex-flow(row wrap);
     height: 150px;
   }
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .missed-letters- {
+
+    &box {
+      font-size: $font-size-md;
+      height: $font-size-md;
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .missed-letters- {
+
+    &box {
+      font-size: $font-size-lg;
+      height: $font-size-lg;
+    }
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }

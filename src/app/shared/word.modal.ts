@@ -3,7 +3,7 @@ export class Word {
   private word: string;
   constructor (id, word) {
     this.id = id;
-    this.word = word;
+    this.word = word.toLowerCase();
   }
   getLetterIndexes(letter: string): number[] {
     let indexes: number[] = [];
@@ -20,9 +20,4 @@ export class Word {
   }
   getWord(): string {return this.word}
   getWordLength (): number {return this.word.length}
-  // wordContainsLetter(letter) {
-  //   if (this.word.indexOf(letter) > 0){
-  //     return true;
-  //   } else {return false;}
-  // }
 }

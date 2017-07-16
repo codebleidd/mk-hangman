@@ -7,10 +7,10 @@
   @include flexbox();
   @include flex-flow(row wrap);
   justify-content: space-around;
-  width: 75%;
-  height: 75%;
-  top: 12.5%;
-  left: 12.5%;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
   padding: 20px;
   overflow: auto;
   z-index: $z-index-3;
@@ -33,7 +33,7 @@
   padding: 0;
   z-index: $z-index-2;
   background-color: $blue;
-  @include clip-path(polygon(100% 20%, 60% 85%, 67% 100%, 100% 100%));
+  @include clip-path(polygon(100% 20%, 20% 85%, 37% 100%, 100% 100%));
 }
 
 .test-box{
@@ -75,6 +75,9 @@
     @include flex(1 100%);
     margin: 10px;
   }
+  .kicked-box {
+    @include clip-path(polygon(100% 20%, 40% 85%, 55% 100%, 100% 100%));
+  }
 }
 
 /* Medium Devices, Desktops */
@@ -86,9 +89,14 @@
     @include flex(6);
   }
   app-guessed-letters{}
+  .kicked-box {
+    @include clip-path(polygon(100% 20%, 55% 85%, 63% 100%, 100% 100%));
+  }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+  .kicked-box {
+    @include clip-path(polygon(100% 20%, 60% 85%, 67% 100%, 100% 100%));
+  }
 }

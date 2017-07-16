@@ -1,8 +1,15 @@
 <div class="game-wrapper" *ngIf="word">
   <!--<div class="test-box"></div>-->
   <app-hangman></app-hangman>
-  <app-missed-letters [missedLetter]="currentMissedSelection"  ></app-missed-letters>
-  <app-guessed-letters [guessedLetter]="currentGuessedSelection" [wordToGuess]="wordToGuess"></app-guessed-letters>
+
+  <app-missed-letters [missedLetter]="currentMissedSelection"
+                      [resetGame]="resetGame" ></app-missed-letters>
+
+  <app-guessed-letters [guessedLetter]="currentGuessedSelection"
+                       [wordToGuess]="wordToGuess"
+                       [resetGame]="resetGame"></app-guessed-letters>
+
+  <button (click)="restartGame()"></button>
 </div>
 <div class="game-wrapper-background"></div>
 <div class="kicked-box"></div>

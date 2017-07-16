@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-guessed-letters',
@@ -8,17 +8,28 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 export class GuessedLettersComponent implements OnInit, OnChanges {
   @Input() guessedLetter: string;
   @Input() wordToGuess: string;
+  @Input() resetGame: boolean;
 
+  _wordToGuess: string;
   guessedLetters: string[];
-  wordLength: number;
   constructor() {
     this.guessedLetters = [];
   }
 
   ngOnInit() {
   }
-  ngOnChanges() {
-    this.guessedLetters.push(this.guessedLetter);
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    let guessedLetter: string = changes.guessedLetter ? changes.guessedLetter.currentValue : null;
+    let resetGame: string = changes.resetGame ? changes.resetGame.currentValue : null;
+
+    if (guessedLetter) {
+      this.guessedLetters.push(...guessedLetter.split(''));
+    }
+
+    if (resetGame) {
+      this.guessedLetters = [];
+    }
   }
 
 }

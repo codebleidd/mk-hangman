@@ -17,28 +17,35 @@ export class AppComponent implements OnInit {
   guessedLetters: string[];
   currentMissedSelection: string;
   currentGuessedSelection: string;
+  resetGame: boolean;
   errorMessage: any;
 
   constructor (private apiService: ApiService) {}
 
-  ngOnInit() {this.getWord()}
+  ngOnInit() {this.getNewWord()}
 
-  getWord () {
+  getNewWord () {
     this.apiService.getWord()
       .subscribe(word => {
         this.word = word;
-        this.missedLetters = [];
-        this.guessedLetters = [];
         this.wordToGuess = this.word.getWord();
+        this.resetGame = false;
         console.log(this.word);
       },
       error => this.errorMessage = <any>error
       );
+    this.missedLetters = [];
+    this.guessedLetters = [];
+  }
+
+  restartGame() {
+    this.resetGame = true;
+    this.getNewWord();
   }
 
   @HostListener('window:keydown', ['$event'])
   handleKyeboardInput(event: KeyboardEvent) {
-    if (event.keyCode > 64 && event.keyCode < 91) {
+    if ((event.keyCode > 64 && event.keyCode < 91)) {
       let selectedLetter = event.key;
       let letterIndexes = [...this.word.getLetterIndexes(selectedLetter)];
 

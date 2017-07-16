@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-missed-letters',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input, OnChanges, EventEmitter } from '@angular/core
 })
 export class MissedLettersComponent implements OnInit, OnChanges {
   @Input() missedLetter: string;
+  @Input() resetGame: string;
 
   missedLetters: string[];
   constructor() {
@@ -15,8 +16,17 @@ export class MissedLettersComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
-  ngOnChanges () {
-    this.missedLetters.push(this.missedLetter)
+  ngOnChanges (changes: SimpleChanges) {
+    let missedLetter: string = changes.missedLetter ? changes.missedLetter.currentValue : null;
+    let resetGame: boolean = changes.resetGame ? changes.resetGame.currentValue : false;
+
+    if (missedLetter) {
+      this.missedLetters.push(missedLetter);
+    }
+
+    if (resetGame) {
+      this.missedLetters = [];
+    }
   }
 
 }

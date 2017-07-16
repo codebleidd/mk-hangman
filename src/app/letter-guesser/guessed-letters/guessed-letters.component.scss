@@ -1,9 +1,15 @@
 @import './../../styles/app';
 $box-size-xs: 50px;
-$box-size-md: 100px;
+$font-size-xs: 30px;
+
+$box-size-md: 75px;
+$font-size-md: 45px;
+
+$box-size-lg: 100px;
+$font-size-lg: 60px;
 
 #guessed-letters{
-  margin-top: 20%;
+  //margin-top: 20%;
   @include flexbox();
   @include flex-flow(row wrap);
   justify-content: flex-end;
@@ -13,20 +19,31 @@ $box-size-md: 100px;
   @include border-radius(5px);
   width: $box-size-xs;
   height: $box-size-xs;
-  margin: 5px;
+  margin: 0 5px 5px 0;
   //float: left;
 
   &-full{
     @extend .guessed-box;
-    background-color: $bar-color;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    background-color: $guessed-letters-color;
     color: $background3;
     text-align: center;
+    &-content {
+      width: $box-size-xs;
+      height: $box-size-xs;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
   }
   &-empty{
     @extend .guessed-box;
-    @include background-opacity($bar-color, 0.1)
+    @include background-opacity($guessed-letters-color, 0.1)
   }
 }
+
+
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
@@ -40,6 +57,22 @@ $box-size-md: 100px;
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+  .guessed-box{
+    &-empty {
+      height: $box-size-md;
+      width: $box-size-md;
+
+    }
+    &-full {
+      height: $box-size-md;
+      width: $box-size-md;
+      font-size: $font-size-md;
+      &-content {
+        width: $box-size-md;
+        height: $box-size-md;
+      }
+    }
+  }
 
 }
 
@@ -47,12 +80,17 @@ $box-size-md: 100px;
 @media only screen and (min-width : 992px) {
   .guessed-box{
     &-empty {
-      height: $box-size-md;
-      width: $box-size-md;
+      height: $box-size-lg;
+      width: $box-size-lg;
     }
     &-full {
-      height: $box-size-md;
-      width: $box-size-md;
+      height: $box-size-lg;
+      width: $box-size-lg;
+      font-size: $font-size-lg;
+      &-content {
+        width: $box-size-lg;
+        height: $box-size-lg;
+      }
     }
   }
 
